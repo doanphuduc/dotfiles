@@ -1,0 +1,57 @@
+call plug#begin('~/.vim/bundle')
+
+" Define bundles via Github repos
+" Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-surround'
+Plug 'alvan/vim-closetag'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'easymotion/vim-easymotion'
+
+" NERDTree plugins
+Plug 'preservim/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tsony-tsonev/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'preservim/nerdcommenter'
+
+" Multiselection
+Plug 'terryma/vim-multiple-cursors'
+
+" Auto save
+Plug '907th/vim-auto-save'
+
+" Auto close brackets.
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'dracula/vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Find finder
+Plug 'kien/ctrlp.vim'
+
+" Buffer kill
+Plug 'qpkorr/vim-bufkill'
+
+" Commenting
+Plug 'tpope/vim-commentary'
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Tmux airline
+Plug 'edkolev/tmuxline.vim'
+
+call plug#end()
+
+" Local config
+if filereadable($HOME . "/.vimrc.bundles.local")
+  source ~/.vimrc.bundles.local
+endif

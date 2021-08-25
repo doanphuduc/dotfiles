@@ -1,0 +1,49 @@
+1. NERDTree
+
+  Shift-C       : Change current directory of NERDTree 
+  u             : Undo directory.
+  <F1>          : Toggle NERDTree.
+  <F2>          : Move to a find in NERDTree
+
+  ma            : Add new node to tree. (Using to create folder).
+  md            : Delete a node in tree.
+
+
+2. VIM
+
+Fuzzy finder
+
+  `             : Search files 
+  ;             : Search buffer (maybe don't know how to use)
+  K             : Search current word (in cursor) all files.
+  Crt-k         : Search current word (in cursor) in files. 
+  \             : Open search bar. (Often search a file has keyword)
+ 
+
+Moving:
+  
+  Crt + u       : Move back (up) 10 lines. 
+  Crt + d       : Move forward (down) 10 lines. 
+  Crt + b       : Move back (up) 1 screen. 
+  Crt + u       : Move forward (down) 1 screen.
+
+Replace:
+  
+  C             : change (replace) to the end of the line.
+  cc            : change (replace) entire line. 
+  ciw           : (change in word).
+  cw            : change (replace) to the end of the word.
+  c             : change an highline word (useful for multiselection)
+
+Remove:
+  x             : Remove one character
+  dd            : Remove a line.
+  diw           : delete in word.
+  dw            : delete to the end of the word.
+  dt<character> : delete until met character.
+  di<{>         : delete all thing inside {}
+  da<{>         : delete all things inside {} include {}
+  
+Multiselection:
+  Go to visual line: V 
+
