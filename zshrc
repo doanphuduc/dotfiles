@@ -85,6 +85,7 @@ export EDITOR='nvim'
 alias vi="nvim"
 alias vim="nvim"
 alias reload='source ~/.zshrc'
+alias rm="mv -t $HOME/.Trash"
 
 # Setting ag as the default source for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

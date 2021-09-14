@@ -45,6 +45,17 @@ function install_ubuntu {
     fi
     pip3 install neovim --upgrade
   fi
+
+  if [ "$(is_installed nodejs)" == "0" ]; then
+    echo "Installing nodejs"
+    sudo apt install nodejs
+  fi
+
+  echo "Instaling neovim via npm"
+  sudo npm install neovim -g
+
+  echo "Installing pynvim via pip"
+  sudo pip install pynvim
   
   if [ "$(is_installed tmux)" == "0" ]; then
     echo "Installing tmux"
@@ -77,6 +88,7 @@ function link_dotfiles {
   ln -s $(pwd)/vim ~/.vim
   ln -s $(pwd)/vimrc ~/.vimrc
   ln -s $(pwd)/vimrc.bundles ~/.vimrc.bundles
+  ln -s $(pwd)/nvim_settings ~/.nvim_settings
   
   echo "Installing oh-my-zsh"
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

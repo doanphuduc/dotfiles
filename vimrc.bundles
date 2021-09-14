@@ -33,9 +33,6 @@ Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Find finder
-Plug 'kien/ctrlp.vim'
-
 " Buffer kill
 Plug 'qpkorr/vim-bufkill'
 
