@@ -87,6 +87,18 @@ function install_ubuntu {
     echo "Installing fonts-firacode ..."
     sudo apt install fonts-firacode
   fi
+
+  if [ "$(is_installed snapd)" == "0" ]; then
+    echo "Installing snapd ..."
+    sudo apt install snapd
+  fi
+
+  sudo snap install ccls --classic
+
+  if [ "$(is_installed fonts-powerline)" == 0 ]; then
+    echo "Installing powerline fonts ..."
+    sudo apt-get install fonts-powerline
+  fi
 } 
 
 function backup {
