@@ -39,17 +39,29 @@ function install_ubuntu {
   if [ "$(is_installed nvim)" == "0" ]; then
     echo "Installing neovim ..."
     sudo apt install neovim
-    
-    if [ "is_installed pip3" == "0" ]; then
-      echo "Installing pip3 ..."
-      sudo apt-get -y install python3-pip
-    fi
-    pip3 install neovim --upgrade
+  fi
+  
+  if [ "$(is_installed pip3)" == "0" ]; then
+    echo "Installing pip3 ..."
+    sudo apt-get -y install python3-pip
+    sudo pip3 install neovim --upgrade
+  fi
+  
+  if [ "$(is_installed curl)" == "0" ]; then
+    echo "Installing curl ..."
+    sudo apt install curl
   fi
 
+  sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+  
   if [ "$(is_installed nodejs)" == "0" ]; then
     echo "Installing nodejs ..."
-    sudo apt install nodejs
+    sudo apt-get install -y nodejs
+  fi
+  
+  if [ "$(is_installed npm)" == "0" ]; then
+    echo "Installing npm ..."
+    sudo apt install npm
   fi
 
   echo "Instaling neovim via npm ..."
@@ -70,51 +82,61 @@ function install_ubuntu {
     echo "Installing tmux-plugin-manager"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   fi
+
+  if [ "$(is_installed fonts-firacode)" == "0" ]; then
+    echo "Installing fonts-firacode ..."
+    sudo apt install fonts-firacode
+  fi
 } 
 
 function backup {
   echo "Backing up dotfiles"
-
-  local current_date=$(date + %s)
-  local backup_dir=dotfiles_$current_date
-  mkdir ~/$backup_dir
+  current_date=$(date +'%s')
   
-  mv ~/.zshrc ~/$backup_dir/.zshrc
-  mv ~/.tmux.conf ~/$backup_dir/.tmux.conf
-  mv ~/.vim ~/$backup_dir/.vim
-  mv ~/.vimrc ~/$backup_dir/.vimrc
-  mv ~/.vimrc.bundles ~/$backup_dir/.vimrc.bundles
+  local backup_dir=dotfiles_${current_date}
+  sudo mkdir ~/$backup_dir
+  
+  sudo cp ~/.zshrc ~/$backup_dir/.zshrc
+  sudo cp ~/.tmux.conf ~/$backup_dir/.tmux.conf
+  sudo cp -r ~/.vim ~/$backup_dir/.vim
+  sudo cp ~/.vimrc ~/$backup_dir/.vimrc
+  sudo cp ~/.vimrc.bundles ~/$backup_dir/.vimrc.bundles
+  sudo cp -r ~/.nvim_settings ~/.nvim_settings
 }
 
 function link_dotfiles {
   echo "Linking dotfiles"
 
-  ln -s $(pwd)/zshrc ~/.zshrc
-  ln -s $(pwd)/tmux.conf ~/.tmux.conf
-  ln -s $(pwd)/vim ~/.vim
-  ln -s $(pwd)/vimrc ~/.vimrc
-  ln -s $(pwd)/vimrc.bundles ~/.vimrc.bundles
-  ln -s $(pwd)/nvim_settings ~/.nvim_settings
+  sudo ln -s $(pwd)/zshrc ~/.zshrc
+  sudo ln -s $(pwd)/tmux.conf ~/.tmux.conf
+  sudo ln -s $(pwd)/vim ~/.vim
+  sudo ln -s $(pwd)/vimrc ~/.vimrc
+  sudo ln -s $(pwd)/vimrc.bundles ~/.vimrc.bundles
+  sudo ln -s $(pwd)/nvim_settings ~/.nvim_settings
+  sudo ln -s $(pwd)/oh-my-zsh/themes/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
   
   echo "Installing oh-my-zsh"
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sudo mv /root/.oh-my-zsh ~/.oh-my-zsh
 
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  sudo curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   
-  rm -rf $HOME/.config/nvim/init.vim
-  rm -rf $HOME/.config/nvim
-  mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-  ln -s $(pwd)/vim $XDG_CONFIG_HOME/nvim
-  ln -s $(pwd)/vimrc $XDG_CONFIG_HOME/nvim/init.vim
+  sudo rm -rf $HOME/.config/nvim/init.vim
+  sudo rm -rf $HOME/.config/nvim
+  sudo mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+  sudo ln -s $(pwd)/vim $XDG_CONFIG_HOME/nvim
+  sudo ln -s $(pwd)/vimrc $XDG_CONFIG_HOME/nvim/init.vim
   
-  # Have do it cuz Plug not working.
-  git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
-
   # Fira code fonts.
-  ln -s $(pwd)/fonts/NerdFonts $HOME/.local/share/fonts/NerdFonts
+  sudo mkdir -p $HOME/.local/share/fonts
+  sudo ln -s $(pwd)/fonts/NerdFonts $HOME/.local/share/fonts/NerdFonts
 
   # Tmux-status line 
-  ln -s $(pwd)/tmux-status.conf $HOME/.tmux-status.conf
+  sudo ln -s $(pwd)/tmux-status.conf $HOME/.tmux-status.conf
+
+  # Hacking init zsh
+  sudo echo 'source ~/.init_zsh' >> ~/.bashrc
+  sudo ln -s $(pwd)/init_zsh ~/.init_zsh
 }
 
 while test $# -gt 0; do

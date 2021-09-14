@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/phu-duc/.oh-my-zsh
+export ZSH=/home/phu/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,7 +85,7 @@ export EDITOR='nvim'
 alias vi="nvim"
 alias vim="nvim"
 alias reload='source ~/.zshrc'
-alias rm="mv -t $HOME/.Trash"
+alias rm="rm -i"
 
 # Setting ag as the default source for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
