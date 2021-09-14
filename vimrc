@@ -54,6 +54,8 @@ set diffopt+=vertical
 
 " Copy to clipboard
 set clipboard=unnamed
+set clipboard=unnamedplus
+vnoremap <C-c> "+y
 
 set lazyredraw
 set termguicolors
@@ -113,6 +115,12 @@ let g:EasyMotion_smartcase = 1
 
 " Search n-chars
 map / <Plug>(easymotion-sn)
+
+" Support moving between NERDTree pannel and vim 
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Multi select
 let g:multi_cursor_next_key='<C-n>'

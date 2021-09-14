@@ -32,30 +32,36 @@ function install_ubuntu {
   fi
 
   if [ "$(is_installed ag)" == "0" ]; then
-    echo "Installing ag"
+    echo "Installing ag ..."
     sudo apt-get install silversearcher-ag
   fi
 
   if [ "$(is_installed nvim)" == "0" ]; then
-    echo "Installing neovim"
+    echo "Installing neovim ..."
     sudo apt install neovim
     
     if [ "is_installed pip3" == "0" ]; then
+      echo "Installing pip3 ..."
       sudo apt-get -y install python3-pip
     fi
     pip3 install neovim --upgrade
   fi
 
   if [ "$(is_installed nodejs)" == "0" ]; then
-    echo "Installing nodejs"
+    echo "Installing nodejs ..."
     sudo apt install nodejs
   fi
 
-  echo "Instaling neovim via npm"
+  echo "Instaling neovim via npm ..."
   sudo npm install neovim -g
 
-  echo "Installing pynvim via pip"
+  echo "Installing pynvim via pip ..."
   sudo pip install pynvim
+
+  if [ "$(is_installed xclip)" == "0" ]; then
+    echo "Installing xclip ..."
+    sudo apt-get install -y xclip
+  fi
   
   if [ "$(is_installed tmux)" == "0" ]; then
     echo "Installing tmux"
