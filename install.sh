@@ -118,18 +118,19 @@ function backup {
 
 function link_dotfiles {
   echo "Linking dotfiles"
-
+  
+  sudo rm ~/.zshrc
   sudo ln -s $(pwd)/zshrc ~/.zshrc
   sudo ln -s $(pwd)/tmux.conf ~/.tmux.conf
   sudo ln -s $(pwd)/vim ~/.vim
   sudo ln -s $(pwd)/vimrc ~/.vimrc
   sudo ln -s $(pwd)/vimrc.bundles ~/.vimrc.bundles
   sudo ln -s $(pwd)/nvim_settings ~/.nvim_settings
-  sudo ln -s $(pwd)/oh-my-zsh/themes/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
   
   echo "Installing oh-my-zsh"
-  sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  sudo mv /root/.oh-my-zsh ~/.oh-my-zsh
+  # sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sudo mv /root/.oh-my-zsh /home/phu/
+  sudo ln -s $(pwd)/oh-my-zsh/themes/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
 
   sudo curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   
