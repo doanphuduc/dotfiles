@@ -10,6 +10,7 @@ Clone onto your machine:
 
 Move to dotfiles folder and run install.sh script: 
 
+    cd dotfiles
     bash install.sh --ubuntu
     
 In `vim/neovim` run:
