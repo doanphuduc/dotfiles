@@ -17,7 +17,6 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
-
 set autoindent
 set smartindent
 
@@ -60,6 +59,13 @@ vnoremap <C-c> "+y
 set lazyredraw
 set termguicolors
 set background=dark
+set cursorline
+
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
 
 colorscheme dracula
 
@@ -85,6 +91,10 @@ vmap <S-Tab> <gv
 " Split
 nnoremap <Leader>\ :vsplit<CR>
 nnoremap <Leader>- :split<CR>
+noremap <silent> <C-S-Left> :vertical resize -5<CR>
+noremap <silent> <C-S-Right> :vertical resize +5<CR>
+noremap <silent> <C-S-Up> :resize +5<CR>
+noremap <silent> <C-S-Down> :resize -5<CR>
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
@@ -94,9 +104,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " Alias write to W
 nnoremap W :w<CR>
-
-" Alias write and quit to Q
-nnoremap Q :wq<CR>
 
 " Remove highlight
 nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>

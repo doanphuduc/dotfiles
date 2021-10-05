@@ -1,1 +1,1 @@
-/home/phu/Desktop/dotfiles/vimrc
+/home/phu-duc/CPP/dotfiles/vimrc
