@@ -54,18 +54,17 @@ set diffopt+=vertical
 " Copy to clipboard
 set clipboard=unnamed
 set clipboard=unnamedplus
-vnoremap <C-c> "+y
 
 set lazyredraw
 set termguicolors
 set background=dark
 set cursorline
 
-augroup CursorLine
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-augroup END
+" augroup CursorLine
+"     au!
+"     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+"     au WinLeave * setlocal nocursorline
+" augroup END
 
 colorscheme dracula
 
@@ -104,6 +103,7 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " Alias write to W
 nnoremap W :w<CR>
+nnoremap Q :BD<CR>
 
 " Remove highlight
 nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>

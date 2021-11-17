@@ -26,6 +26,9 @@ Moving:
   Crt + d       : Move forward (down) 10 lines. 
   Crt + b       : Move back (up) 1 screen. 
   Crt + u       : Move forward (down) 1 screen.
+  H             : Move cursor to the top of window
+  M             : Move cursor to the middle of the window
+  L             : Move cursor to the bottom of the window
 
 Replace:
   
@@ -40,10 +43,22 @@ Remove:
   dd            : Remove a line.
   diw           : delete in word.
   dw            : delete to the end of the word.
-  dt<character> : delete until met character.
+  dt<character> : delete until met character exclude character
+  df<character> : delete until met character include character
   di<{>         : delete all thing inside {}
   da<{>         : delete all things inside {} include {}
+  D             : delete until end of line.
+
+Motion:
+  a             : all
+  i             : in
+  t             : until
+  f             : find forward
+  F             : find backward
   
 Multiselection:
   Go to visual line: V 
+
+Vim-surround:
+  ysiw<character>   : surround word with <character>
 
