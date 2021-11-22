@@ -129,9 +129,10 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_select_all_word_key = '<C-a>' 
 let g:multi_cursor_quit_key = '<Esc>' 
+
 " GitGutter
 let g:gitgutter_enabled = 1
-let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed = 'X'
 
 " Move lines up and down
 nnoremap <C-Down> :m .+1<CR>==
