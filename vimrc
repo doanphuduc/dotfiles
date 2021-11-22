@@ -60,14 +60,6 @@ set termguicolors
 set background=dark
 set cursorline
 
-" augroup CursorLine
-"     au!
-"     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-"     au WinLeave * setlocal nocursorline
-" augroup END
-
-colorscheme dracula
-
 filetype plugin indent on
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -79,6 +71,8 @@ endif
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
+
+colorscheme dracula
 
 " When the type or syntax highlighting purposes.
 let g:is_posix = 1
@@ -132,9 +126,11 @@ map <C-l> <C-w>l
 " Multi select
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
-" let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_select_all_word_key = '<C-a>' 
 let g:multi_cursor_quit_key = '<Esc>' 
+" GitGutter
+let g:gitgutter_enabled = 1
 
 " Move lines up and down
 nnoremap <C-Down> :m .+1<CR>==
