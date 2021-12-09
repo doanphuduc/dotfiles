@@ -111,7 +111,10 @@ autocmd FileType cpp setlocal commentstring=//\ %s
 " Prevent continue commenting
 au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Easymof <Pluilent> fl <Plug>(easymotion-overwin-line)
+" Switch buffer
+nnoremap  <silent>   <Tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <S-Tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+
 let g:EasyMotion_smartcase = 1
 
 " Search n-chars

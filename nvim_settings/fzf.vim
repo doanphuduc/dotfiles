@@ -1,5 +1,8 @@
 " fzf
 "fzf colors to match your color scheme
+noremap ` :Files<CR>
+noremap <F12> :Ag<CR>
+
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
