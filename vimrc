@@ -23,6 +23,9 @@ set smartindent
 set autoread
 set autowrite
 
+" Set favorite cursor in each mode
+set guicursor=n-v-c-sm:block,i:block-blinkwait175-blinkoff150-blinkon175,ci-ve:ver25-Cursor,r-cr-o:hor20
+
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
@@ -30,7 +33,7 @@ set shiftround
 set expandtab
 
 " Make it obvious where 80 characters is
-set textwidth=80
+set textwidth=100
 set colorcolumn=+1
 
 " Use one space, not two, aion.
@@ -84,16 +87,29 @@ vmap <S-Tab> <gv
 " Split
 nnoremap <Leader>\ :vsplit<CR>
 nnoremap <Leader>- :split<CR>
-noremap <silent> <C-S-Left> :vertical resize -5<CR>
-noremap <silent> <C-S-Right> :vertical resize +5<CR>
-noremap <silent> <C-S-Up> :resize +5<CR>
-noremap <silent> <C-S-Down> :resize -5<CR>
+nnoremap <silent> < :vertical resize -5<CR>
+nnoremap <silent> > :vertical resize +5<CR>
+nnoremap <silent> + :resize +5<CR>
+nnoremap <silent> _ :resize -5<CR>
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+" Mapping % to \, easier to use
+map m %
+
+" Behave like C, D
+nnoremap Y y$
+
+" Keeping it centered when searching
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Remap join lines to another key
+nnoremap L J
 
 " Alias write to W
 nnoremap W :w<CR>
@@ -105,9 +121,13 @@ nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
 noremap <F1> :NERDTreeToggle<CR>
 nnoremap <F2>  :NERDTreeFind<CR>
 
+" Set filetype for custom file
+au BufRead,BufNewFile *.pconf set ft=pconf
+
 " Commenting
-map <Leader>/ gc 
-autocmd FileType cpp setlocal commentstring=//\ %s
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+autocmd FileType pconf setlocal commentstring=#\ %s
+
 " Prevent continue commenting
 au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -119,6 +139,9 @@ let g:EasyMotion_smartcase = 1
 
 " Search n-chars
 map / <Plug>(easymotion-sn)
+
+" Tab move completion from top to bot
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Support moving between NERDTree pannel and vim 
 map <C-h> <C-w>h
@@ -135,15 +158,15 @@ let g:multi_cursor_quit_key = '<Esc>'
 
 " GitGutter
 let g:gitgutter_enabled = 1
-let g:gitgutter_sign_removed = 'X'
+let g:gitgutter_sign_removed = '-'
 
 " Move lines up and down
-nnoremap <C-Down> :m .+1<CR>==
-nnoremap <C-Up> :m .-2<CR>==
-inoremap <C-Down> <Esc>:m .+1<CR>==gi
-inoremap <C-Up> <Esc>:m .-2<CR>==gi
-vnoremap <C-Down> :m '>+1<CR>gv=gv
-vnoremap <C-Up> :m '<-2<CR>gv=gv
+nnoremap J :m .+1<CR>==
+nnoremap K :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Execute extended settings.
 source ~/.nvim_settings/coc.vim
