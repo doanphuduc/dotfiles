@@ -1,0 +1,29 @@
+# Reference:
+# Blinking cursor: https://superuser.com/questions/361335/how-to-change-the-terminal-cursor-from-box-to-line
+
+set show-mode-in-prompt on
+
+set vi-cmd-mode-string "\1\e[2 q\2"
+# set vi-ins-mode-string "\1\e[6 q\2"
+set vi-ins-mode-string "\033[1 q"
+
+set keymap emacs
+"\ea": vi-editing-mode
+
+set keymap vi-command
+"k": history-search-backward
+"j": history-search-forward
+"z": emacs-editing-mode
+"\ea": emacs-editing-mode
+v: ""
+
+set keymap vi-insert
+"\ea": emacs-editing-mode
+"\C-l": clear-screen
+"\C-e": end-of-line
+"\C-k": kill-line
+
+set keyseq-timeout 0
+
+set editing-mode vi
+
