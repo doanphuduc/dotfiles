@@ -23,7 +23,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug '907th/vim-auto-save'
 
 " Auto close brackets.
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
