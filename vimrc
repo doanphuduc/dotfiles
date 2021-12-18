@@ -108,6 +108,9 @@ nnoremap Y y$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+" Delete and paste
+vnoremap <Leader>p "_dP
+
 " Remap join lines to another key
 nnoremap L J
 
