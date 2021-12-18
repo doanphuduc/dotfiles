@@ -164,8 +164,8 @@ let g:gitgutter_enabled = 1
 let g:gitgutter_sign_removed = '-'
 
 " Move lines up and down
-nnoremap J :m .+1<CR>==
-nnoremap K :m .-2<CR>==
+nnoremap <Leader>j :m .+1<CR>==
+nnoremap <Leader>k :m .-2<CR>==
 inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap J :m '>+1<CR>gv=gv
