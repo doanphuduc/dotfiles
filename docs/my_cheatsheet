@@ -29,6 +29,8 @@ Moving:
   H             : Move cursor to the top of window
   M             : Move cursor to the middle of the window
   L             : Move cursor to the bottom of the window
+  f + char      : Move cursor to matching character in same line
+  %             : Move cursor to matching current character (Often use for brackets)
 
 Replace:
   
@@ -55,10 +57,15 @@ Motion:
   t             : until
   f             : find forward
   F             : find backward
+
+Commands:
+  qa            : quit all
+  mksess        : make a session and save it
+
   
 Multiselection:
   Go to visual line: V 
 
 Vim-surround:
   ysiw<character>   : surround word with <character>
-
+  
