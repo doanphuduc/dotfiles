@@ -19,11 +19,6 @@ Plug 'preservim/nerdcommenter'
 " Multiselection
 Plug 'terryma/vim-multiple-cursors'
 
-" Auto save
-Plug '907th/vim-auto-save'
-
-" Auto close brackets.
-" Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
@@ -31,7 +26,7 @@ Plug 'dracula/vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Buffer kill
 Plug 'qpkorr/vim-bufkill'
