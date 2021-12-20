@@ -51,12 +51,19 @@ Remove:
   da<{>         : delete all things inside {} include {}
   D             : delete until end of line.
 
+Selection:
+  gv            : jump back to the previous selection
+
 Motion:
   a             : all
   i             : in
   t             : until
   f             : find forward
   F             : find backward
+
+Capitalization:
+  gu            : uncapitalize
+  gU            : capitalize
 
 Commands:
   qa            : quit all
