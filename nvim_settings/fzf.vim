@@ -1,7 +1,7 @@
 " fzf
 "fzf colors to match your color scheme
-noremap ` :Files<CR>
-noremap <F12> :Ag<CR>
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>fg :Ag<CR>
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -18,5 +18,5 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-let g:fzf_layout = { 'down': '25%'}
+let $FZF_DEFAULT_OPTS = "--layout=reverse --info=inline"
 

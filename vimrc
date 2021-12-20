@@ -113,6 +113,11 @@ vnoremap <Leader>p "_dP
 
 " Remap join lines to another key
 nnoremap L J
+vnoremap L J
+
+" Easier line-wise movement
+nnoremap gh g^
+nnoremap gl g$
 
 " Alias write to W
 nnoremap W :w<CR>
