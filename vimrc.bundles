@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/bundle')
 
 " Define bundles via Github repos
-" Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'airblade/vim-gitgutter'
@@ -10,7 +9,6 @@ Plug 'easymotion/vim-easymotion'
 
 " NERDTree plugins
 Plug 'preservim/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tsony-tsonev/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -19,16 +17,22 @@ Plug 'preservim/nerdcommenter'
 " Multiselection
 Plug 'terryma/vim-multiple-cursors'
 
+" Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dracula/vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Buffer kill
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+" Buffer killer
 Plug 'qpkorr/vim-bufkill'
 
 " Commenting
