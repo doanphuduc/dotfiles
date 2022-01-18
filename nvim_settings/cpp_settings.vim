@@ -3,7 +3,7 @@ function! CPPSET()
   set nowrap
   set expandtab
   setlocal cinkeys-=:
-  setlocal cino=g1,h2,j1,(0,ws,Ws
+  setlocal cino=g1,h1,j1,(0,ws,Ws
 
   " setlocal equalprg=clang-format\ -style=google
 endfunction
