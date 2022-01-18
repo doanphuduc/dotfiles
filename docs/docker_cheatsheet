@@ -1,0 +1,71 @@
+1. List all docker app is running: `docker ps -a`. Flag -a means including all docker app that exited or stopped.
+
+2. Stop a container: `docker stop <container-id>` or `docker stop <container-names>`
+
+3. Remove a container permanently: `docker rm <container-id>` or `docker rm <container-name>`
+
+4. List of images: `docker images`
+
+5. Remove an image: `docker rmi nginx`
+
+6. Pull an image: `docker pull nginx`
+
+7. Running a command while container is running: `docker exec <container-name> cat /etc/hosts`
+
+8. Run docker in detach mode: `docker run -d web-app-server` 
+
+9. Attach to container: `docker attach <container-id>`
+
+10. Run container with name: `docker run <image> --name <name>`
+
+11. Run container with interactive mode: `docker run -i <image>`. Accept STDIN.
+
+12. Run container with interactive mode and pseudo terminal: `docker run -it <image>`.
+
+13. Mapping host running in container to docker host: `docker run -p 80:5000 web-app`. Then the user
+could access on the port 80 from outside container.
+
+14. Create a persisted data: `docker run -v /opt/datadir:/var/lib/mysql mysql`
+
+15. See detail information about container: `docker inspect <container-name>`
+
+16. Log container: `docker logs <container-name>`
+
+17. Environment variables in container: `docker run -e APP_COLOR=blue web-app`
+
+18. Build image: `docker build Dockerfile -t <docker-image-name>`
+
+19. Push image to docker hub: `docker push <docker-image-name>`
+
+20. History command: `docker history <image-name>`
+
+21. Create docker with internal network: `docker network create --driver bridge --subnet 182.18.0.0/16 <network-name>`
+
+22. List docker network: `docker network ls`
+
+23. Detailt about network config: `docker network inspect bridge`
+
+24. Run docker with network: `docker run --network=host <image>`
+
+25. Create docker volume: `docker volume create data_volume`. Then /var/lib/docker/volumes/data_volume will be created.
+
+26. Persisted volume container: `docker run -v data_volume:/var/lib/mysql mysql`
+
+27. Persisted volume container with absolute path: `docker run -v /path/mysql:/var/lib/mysql mysql`
+
+28. Using --mount to more clarity: `docker run --mount type=bind,source=/data/mysql,target=/var/lib/mysql mysql
+
+29. Deploy private registry:
+`docker run -d -p 5000:5000 --name registry registry:2` 
+
+`docker image tag my-image localhost:5000/my-image`
+
+`docker push localhost:5000/my-image`
+
+`docker pull localhost:5000/my-image`
+
+`docker pull 192.168.56.100:5000/my-image`
+
+30. Run docker from remote:
+`docker -H=10.123.2.1:2375 run nginx`
+

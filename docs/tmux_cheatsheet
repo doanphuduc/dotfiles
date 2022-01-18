@@ -1,0 +1,58 @@
+1. Kill server 
+  tmux kill-server
+
+2. Detach from a session:
+  a. <Prefix>d
+
+3. Create a session inside a session:
+  a. Without name: 
+    tmux new-session -d
+  b. With name:
+    tmux new-session -d -s "session-name"
+  c. <Prefix>:
+    new -s "session-name"
+
+4. Switch to a session
+  a. tmux switch-client -t "session-name"
+  b. Using <Prefix>( or <Prefix>) to move previous, next session.
+
+5. Create a window:
+  a. Without name:
+    tmux neww
+
+  b. With name:
+    tmux neww -n "window-name"
+
+  c. <Prefix>c
+
+6. Move between windows
+
+  <Prefix>[window-number]
+
+7. View full view about sessions and windows:
+  View window:    <Prefix>w
+  View sessions:  <Prefix>s
+
+  To kill sessions/windows: Press x
+
+8. Attach to a session
+  Attach to last session: tmux a
+  Attach to specific session: tmux a -t session-name
+
+9. Create window and execute command line
+  tmux neww -n "window-name" "command-line"
+
+10. Kill a pane: <Prefix>x, kill a window: <Prefix>&
+
+11. Showing pane number: <Prefix>q
+
+12. Renamed current window: <Prefix>,
+
+13. List sessions: tmux ls 
+
+14. Resurrect save and restore: 
+  Save: <Prefix><Ctrl>s
+  Restore: <Prefix><Ctrl>r
+
+15. Zoom in/out panes:
+  <Prefix>z
