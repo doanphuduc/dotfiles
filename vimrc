@@ -40,9 +40,7 @@ set colorcolumn=+1
 set nojoinspaces
 
 " Numbers
-" set relativenumber
 set number
-set numberwidth=5
 
 " Open new speels more natural
 set splitbelow
@@ -99,7 +97,7 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 " Mapping % to \, easier to use
-map m %
+map M %
 
 " Behave like C, D
 nnoremap Y y$
@@ -107,13 +105,10 @@ nnoremap Y y$
 " Keeping it centered when searching
 nnoremap n nzzzv
 nnoremap N Nzzzv
+nnoremap J mzJ`z
 
 " Delete and paste
 vnoremap <Leader>p "_dP
-
-" Remap join lines to another key
-nnoremap L J
-vnoremap L J
 
 " Easier line-wise movement
 nnoremap gh g^
@@ -122,6 +117,9 @@ nnoremap gl g$
 " Alias write to W
 nnoremap W :w<CR>
 nnoremap Q :BD<CR>
+
+" Allow misspelling
+cnoreabbrev Q q
 
 " Remove highlight
 nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
@@ -173,8 +171,8 @@ nnoremap <Leader>j :m .+1<CR>==
 nnoremap <Leader>k :m .-2<CR>==
 inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Execute extended settings.
 source ~/.nvim_settings/coc.vim
