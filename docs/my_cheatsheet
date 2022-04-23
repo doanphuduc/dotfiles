@@ -75,4 +75,21 @@ Multiselection:
 
 Vim-surround:
   ysiw<character>   : surround word with <character>
+
+Simulate multi-cursors:
+
+1. Replace a word
+
+a. Find the word /{word}
+b. cgn --> change the desired word.
+c. dot command.
+
+2. Insert before block.
+
+a. Find a word /{word}
+b. Visual block: <C-v>, select multiple blocks.
+c. Press I, write the text. Esc.
+
+
+
   
