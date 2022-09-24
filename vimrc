@@ -114,8 +114,8 @@ vnoremap <Leader>p "_dP
 nnoremap gh g^
 nnoremap gl g$
 
-" Alias write to W
-nnoremap W :w<CR>
+" " Alias write to W
+" nnoremap W :w<CR>
 nnoremap Q :BD<CR>
 
 " Allow misspelling
