@@ -96,9 +96,6 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Mapping % to \, easier to use
-map M %
-
 " Behave like C, D
 nnoremap Y y$
 
