@@ -1,11 +1,10 @@
 filetype off
-
 set shell=sh
 
 " Leader
 let mapleader = " "
 
-autocmd BufEnter * :set scroll=10
+" autocmd BufEnter * :set scroll=10
 set mouse=a
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
@@ -23,6 +22,7 @@ set smartindent
 set autoread
 set autowrite
 
+
 " Set favorite cursor in each mode
 set guicursor=n-v-c-sm:block,i:block-blinkwait175-blinkoff150-blinkon175,ci-ve:ver25-Cursor,r-cr-o:hor20
 
@@ -36,11 +36,11 @@ set expandtab
 set textwidth=100
 set colorcolumn=+1
 
-" Use one space, not two, aion.
+" Use one space
 set nojoinspaces
 
 " Numbers
-set number
+set number relativenumber
 
 " Open new speels more natural
 set splitbelow
@@ -63,14 +63,14 @@ set cursorline
 
 filetype plugin indent on
 
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
-endif
-
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
 endif
 
 colorscheme dracula
@@ -124,8 +124,6 @@ cnoreabbrev Q q
 " Remove highlight
 nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
 
-noremap <F1> :NERDTreeToggle<CR>
-nnoremap <F2>  :NERDTreeFind<CR>
 
 " Set filetype for custom file
 au BufRead,BufNewFile *.pconf set ft=pconf
@@ -140,11 +138,6 @@ au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Switch buffer
 nnoremap  <silent>   <Tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <S-Tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
-
-let g:EasyMotion_smartcase = 1
-
-" Search n-chars
-map / <Plug>(easymotion-sn)
 
 " Tab move completion from top to bot
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -166,6 +159,10 @@ let g:multi_cursor_quit_key = '<Esc>'
 let g:gitgutter_enabled = 1
 let g:gitgutter_sign_removed = '-'
 
+" Map
+nnoremap <C-d> 10jzz
+nnoremap <C-u> 10kzz
+
 " Move lines up and down
 nnoremap <Leader>j :m .+1<CR>==
 nnoremap <Leader>k :m .-2<CR>==
@@ -181,4 +178,6 @@ source ~/.nvim_settings/airline.vim
 source ~/.nvim_settings/nerdtree.vim
 source ~/.nvim_settings/cpp_settings.vim
 source ~/.nvim_settings/python_settings.vim
+source ~/.nvim_settings/visual-at.vim
+source ~/.nvim_settings/ycm_settings.vim
 

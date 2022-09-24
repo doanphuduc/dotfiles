@@ -49,11 +49,15 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-vi-mode)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin"
+export PATH="/usr/local/bin:/opt/homebrew/bin/:/opt/homebrew/sbin/:/usr/bin:/bin:/usr/sbin:/sbin:~/local/bin"
+
+# Go env
+export GOPATH="/Users/pduc/Languages/go/golib"
+export PATH=$PATH:$GOPATH/bin
 
 source $ZSH/oh-my-zsh.sh
 
@@ -67,6 +71,11 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 export EDITOR='nvim'
+
+# No shared history between tmux windows, panes
+setopt nosharehistory
+setopt no_share_history
+unsetopt share_history
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -85,9 +94,13 @@ export EDITOR='nvim'
 alias vi="nvim"
 alias vim="nvim"
 alias reload='source ~/.zshrc'
-alias rm="rm -i"
 
 # Setting ag as the default source for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 KEYTIMEOUT=1
 # source ~/.zshrc.local
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export JAVA_HOME=$(/usr/libexec/java_home)

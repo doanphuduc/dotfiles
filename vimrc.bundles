@@ -4,8 +4,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'easymotion/vim-easymotion'
+" Plug 'tpope/vim-fugitive'
 
 " NERDTree plugins
 Plug 'preservim/nerdtree'
@@ -21,16 +20,22 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 Plug 'dracula/vim'
+" Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
-" Use release branch (recommend)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'honza/vim-snippets'
+" Plug 'ervandew/supertab'
 
-" Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" Use release branch (recommend)
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+
+" Code completion C++, go, Rust, Python
+Plug 'ycm-core/youcompleteme'
+
+" " Markdown
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Buffer killer
 Plug 'qpkorr/vim-bufkill'
