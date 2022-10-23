@@ -1,0 +1,5 @@
+require('doanphuduc.settings')
+require('doanphuduc.plugins')
+require('doanphuduc.keybinds')
+require('doanphuduc.autocmd')
+require('doanphuduc.misc')
