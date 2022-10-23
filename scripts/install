@@ -20,6 +20,11 @@ for F in $DOTFILES_DIRS ; do
     stow --dotfiles --dir $DOTFILES --target $TARGET $F
   fi
 
+  if [[ $F = "zsh" ]]; then
+    echo "~ Installing :: $F"
+    stow --dotfiles --dir $DOTFILES --target $TARGET $F
+  fi
+
   # # Remove previous links
   # # NOTE: `stow` issues warning when working with absolute paths, so for now I am ignoring it
   # # GHI: https://github.com/aspiers/stow/issues/65
