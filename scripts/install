@@ -32,3 +32,46 @@ for F in $DOTFILES_DIRS ; do
 
   # # Installed new links
 done
+
+###############################
+## Setup required for neovim ##
+###############################
+
+echo "> Setting up neovim"
+
+echo "~ Installing :: neovim"
+
+NEOVIM=$HOME/.local/
+
+wget -P $NEOVIM/ https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz
+tar -xzvf $NEOVIM/nvim-linux64.tar.gz -C $NEOVIM
+cp -r $NEOVIM/nvim-linux64/* $NEOVIM/.
+rm -rf $NEOVIM/nvim-linux64*
+
+echo "+ Done"
+
+PACKER=$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+if [ ! -d $PACKER ]; then
+    echo "~ Installing :: packer.nvim"
+
+    git clone https://github.com/wbthomason/packer.nvim $PACKER
+
+    echo "+ Done"
+else
+    echo "~ Already Installed :: packer.nvim"
+fi
+
+###############################
+## Setup fzf ##
+###############################
+
+echo "> Setting up fzf"
+
+echo "~ Installing :: fzf"
+FZF=~/.fzf
+
+git clone --depth 1 https://github.com/junegunn/fzf.git $FZF
+$FZF/install --all
+
+echo "+ Done"
